@@ -10,7 +10,7 @@ indir = "../../data/yolo/test/images"
 images = [filename for filename in os.listdir(indir)]
 results = model.predict([indir + "/" + filename for filename in images])
 
-outdir = f"runs/detect/predict_{version}"
+outdir = f"runs/detect/infer_{training_dir}"
 if not os.path.exists(outdir):
     os.makedirs(outdir)
 for i in range(len(results)):
