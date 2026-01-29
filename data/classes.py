@@ -1,0 +1,14 @@
+classes = [
+    "background",
+    "facade",
+    "window",
+    "door",
+    "cornice",
+    "sill",
+    "balcony",
+    "blind",
+    "deco",
+    "molding",
+    "pillar",
+    "shop"
+]
