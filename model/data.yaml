@@ -1,4 +1,4 @@
-path: ../../data/yolo
+path: ../data/yolo
 train: train
 val: val
 test: test

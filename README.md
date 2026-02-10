@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 ## Data Acquisition and Preprocessing
 
-Model is trained on CMP dataset with images cropped to individual facades. Navigate to data directory and run:
+Model is trained on CMP dataset with images cropped to individual facades. Navigate to the "data" directory and run:
 
 ```bash
 ./prepare_dataset.sh
@@ -20,30 +20,42 @@ The script will download CMP dataset, preprocess it and split into training, val
 
 ## Model Preparation
 
-The project uses a modified YOLOv8 detection model. In order to use the model with loss terms defined in this project, navigate to model directory and run:
+The base for this project is YOLOv8 detection model created by Ultralytics. The project modifies its loss function. In order to use the modified model, navigate to the "model" directory and run:
 
 ```bash
 ./prepare_model.sh
 ```
 
+The script will clone the YOLOv8 repository and apply changes defined in a patch file.
+
 ## Training
 
-Navigate to model directory. Set the desired number of epochs in train.py script. Then run:
+Navigate to the "model" directory. Set the desired number of epochs in train.py script. Then run:
 
 ```bash
-./train.sh
+python train.py
 ```
 
-Results will be saved in model/ultralytics/runs/detect/train* directory (subsequent trainings will save results in train, train2, etc).
+Results will be saved in model/ultralytics/runs/detect/train* directory (subsequent trainings will save results in "train", "train2", etc).
 
 ## Inference
 
-Navigate to model directory. Set training_dir variable in infer.py to training results directory name (e.g. "train"). Then run:
+For inference on a test set, navigate to model directory. Set the "model_dir" variable in infer.py to the training results directory name (e.g. "train"). Then run:
 
 ```bash
-./infer.sh
+python infer.py
 ```
 
-Results will be saved in model/ultralytics/runs/detect/infer_* (where * denotes the value of the training_dir variable).
+Results will be saved in model/ultralytics/runs/detect/infer_* (where * denotes the value of the model_dir variable). In order to specify a different set of images for inference, modify the "in_dir" variable in infer.py.
 
 ## Evaluation Metrics
+
+### Standard Metrics
+
+Original YOLO repository provides a method for standard metrics evaluation. Navigate to the model directory and run:
+
+```
+python val.py
+```
+
+### SVD-based metric

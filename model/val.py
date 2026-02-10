@@ -1,8 +1,12 @@
 import os
+os.chdir("ultralytics")
+
 from pathlib import Path
 from ultralytics.models.yolo import YOLO
 
-model = YOLO(f"runs/detect/train/weights/best.pt")
+training_dir = "train"
+
+model = YOLO(f"runs/detect/{training_dir}/weights/best.pt")
 
 metrics = model.val(data="data.yaml", split="test")
 
