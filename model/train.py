@@ -5,7 +5,7 @@ import shutil
 
 ultralytics_path = os.path.abspath(os.path.join(os.getcwd(), "ultralytics"))
 sys.path.insert(0, ultralytics_path)
-shutil.copyfile(f"ultralytics/ultralytics/utils/loss_{config.type}.py", "ultralytics/ultralytics/utils/loss.py")
+shutil.copyfile(f"ultralytics/ultralytics/utils/loss_{config.model}.py", "ultralytics/ultralytics/utils/loss.py")
 shutil.copyfile("config.py", "ultralytics/ultralytics/utils/config.py")
 
 from ultralytics.models.yolo import YOLO
