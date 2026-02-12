@@ -4,6 +4,8 @@
 
 This project is a modification of the YOLOv8 model.
 
+[bboxes_align](./bboxes_align.png)
+
 ## Environment
 
 In order to run scripts included in this project, create a Python environment and install required packages, e.g.:
