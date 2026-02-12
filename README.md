@@ -30,7 +30,7 @@ The script will clone the YOLOv8 repository and apply changes defined in a patch
 
 ## Training
 
-Navigate to the "model" directory. Set the desired number of epochs in train.py script. Then run:
+Navigate to the "model" directory. In the config.py file, set the desired type ("baseline" or "align") of model, number of epochs and, in case of "align" model, threshold and weight values. Then run:
 
 ```bash
 python train.py

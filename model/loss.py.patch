@@ -1,4 +1,6 @@
-242a243,280
+18a19
+> import config
+242a244,281
 >     def align_loss(self, bboxes, cls):
 >         n_bboxes, _ = bboxes.shape
 >         x1, y1, x2, y2 = bboxes[:, 0], bboxes[:, 1], bboxes[:, 2], bboxes[:, 3]
@@ -15,7 +17,7 @@
 >         y22 = y2.unsqueeze(0)
 >         cls2 = cls.unsqueeze(0)
 > 
->         threshold = 9
+>         threshold = config.threshold
 >         idx = torch.arange(n_bboxes).to(self.device)
 >         idx_mask = idx[:, None] < idx
 >         cls_mask = cls1 == cls2
@@ -37,19 +39,19 @@
 >         score = torch.mean(x_scores[x_mask]) + torch.mean(y_scores[y_mask])
 >         return torch.nan_to_num(score, 0)
 > 
-270c308
+270c309
 <         _, target_bboxes, target_scores, fg_mask, _ = self.assigner(
 ---
 >         target_labels, target_bboxes, target_scores, fg_mask, _ = self.assigner(
-297a336,341
+297a337,342
 >         pred_bboxes_pix = pred_bboxes * stride_tensor
 > 
 >         custom_loss = 0.0
 >         for i in range(batch_size):
 >             custom_loss += self.align_loss(pred_bboxes_pix[i][fg_mask[i]], target_labels[i][fg_mask[i]])
 > 
-300a345,348
+300a346,349
 > 
 >         loss[1] += loss[2]
 >         loss[2] = 0.0
->         loss[2] += custom_loss * 0.5 / batch_size
+>         loss[2] += custom_loss * config.weight / batch_size
