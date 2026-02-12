@@ -1,5 +1,9 @@
 # Beyond Segmentation: Structurally Informed Facade Parsing from Imperfect Images
 
+<p align="center">
+	<img src="./teaser.png">
+</p>
+
 ## Overview
 
 Aim of this project is to develop an automatic facade segmentation model. As a baseline, we use the Ultralytics YOLOv8 detector. We introduce a lightweight pairwise alignment regularizer that encourages consistent row/column structure among same-class predictors. It aims to correct segmentation imperfections resulting from perspective and occlusion while maintaining trade-off with standard detection accuracy.
