@@ -16,7 +16,7 @@ mse_sum_2 = 0
 for filename in os.listdir("../data/yolo/test/images"):
     base_name, _ = os.path.splitext(filename)
     path_base_1 = f"baseline/{base_name}_{cls}"
-    path_base_2 = f"custom/{base_name}_{cls}"
+    path_base_2 = f"alignment/{base_name}_{cls}"
 
     image_path_1 = path_base_1 + ".png"
     image_path_2 = path_base_2 + ".png"
@@ -72,6 +72,5 @@ plot_path = f"svd_mse_{cls}.png"
 plt.savefig(plot_path)
 plt.close()
 
-print(mse_sum_1 / count)
-print(mse_sum_2 / count)
-print(mse_sum_2 / mse_sum_1 * 100)
+print(f"Baseline score: {mse_sum_1 / count}")
+print(f"Alignment score: {mse_sum_2 / count}")

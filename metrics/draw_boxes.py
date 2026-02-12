@@ -2,8 +2,8 @@ import os
 import cv2
 import numpy as np
 
-baseline_dir = "train"
-infer_dir = "train2"
+baseline_dir = "infer_train"
+align_dir = "infer_train2"
 
 def load_bboxes(file_path):
     bboxes = []
@@ -71,4 +71,4 @@ if __name__ == "__main__":
         output_dir = 'bboxes'
 
         draw(f"../model/runs/{baseline_dir}", base_name, "baseline")
-        draw(f"../model/runs/{infer_dir}", base_name, "inference")
+        draw(f"../model/runs/{align_dir}", base_name, "alignment")
