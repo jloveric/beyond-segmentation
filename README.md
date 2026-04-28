@@ -78,7 +78,7 @@ python val.py
 
 Results will be saved in model/runs/val_* (where * denotes the value of the model_dir variable). They consist of plots of standard metrics (like Precision, Recall, F1) and a confusion matrix. File val.txt also contains values of mAP@0.5 and mAP@0.5-0.95 metrics (in the "results_dir" field).
 
-### SVD-based metric
+### SVD-based Metric
 
 To quantify the structural coherence of the predictions, an SVD-based metric has been chosen. The regularity score is defined as the sum of Mean Squared Errors (MSE) between the original mask and its rank-k SVD approximations.
 
