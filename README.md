@@ -18,7 +18,7 @@ The loss term is then averaged over all candidate pairs and added to the origina
 
 ## Environment
 
-In order to run scripts included in this project, create a Python environment and install required packages, e.g.:
+In order to run scripts included in this project, create a Python (3.12.3 recommended) environment and install required packages, e.g.:
 
 ```bash
 python -m venv env
