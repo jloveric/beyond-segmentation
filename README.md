@@ -18,12 +18,25 @@ The loss term is then averaged over all candidate pairs and added to the origina
 
 ## Environment
 
-In order to run scripts included in this project, create a Python (3.12.3 recommended) environment and install required packages, e.g.:
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management. Python 3.11+ is required (the system `python3.11` interpreter is used by default).
+
+Install dependencies and create a virtual environment:
 
 ```bash
-python -m venv env
-. env/bin/activate
-pip install -r requirements.txt
+uv sync
+```
+
+Run scripts through uv so they use the project environment:
+
+```bash
+uv run python model/train.py
+```
+
+Or activate the virtual environment manually:
+
+```bash
+source .venv/bin/activate
+python model/train.py
 ```
 
 ## Data Acquisition and Preprocessing
